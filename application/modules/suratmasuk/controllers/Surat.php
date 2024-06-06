@@ -136,7 +136,6 @@ class Surat extends CI_Controller
 
 		$this->load->view('template', $data);
 	}
-	//End Menu Surat Masuk Hibah Editor : Muhamad Idham (18 Februari 2022)
 
 	public function add()
 	{
@@ -288,7 +287,7 @@ class Surat extends CI_Controller
 
 							/* START:Input Retensi Arsip Surat Masuk [@Dam-Egov 11/01/2024] */
 							$nomor = $data['nomor'];
-							$surat = $this->db->query("SELECT suratmasuk_id, diterima FROM surat_masuk WHERE nomor='$nomor' AND opd_id='$opdid' AND dibuat_id='$jabatan'")->row();
+							$surat = $this->db->query("SELECT suratmasuk_id, diterima, FROM surat_masuk WHERE nomor='$nomor' AND opd_id='$opdid' AND dibuat_id='$jabatan'")->row();
 
 							$dataRetensi	= array(
 								'surat_id' 			=> $surat->suratmasuk_id,
@@ -383,10 +382,10 @@ class Surat extends CI_Controller
 
 								/* START:Input Retensi Arsip Surat Masuk [@Dam-Egov 11/01/2024] */
 								$nomor = $data['nomor'];
-								$surat = $this->db->query("SELECT suratmasuk_id, diterima FROM surat_masuk WHERE nomor='$nomor' AND opd_id='$opdid' AND dibuat_id='$jabatan'")->row();
+								$surat_id = $this->db->query("SELECT suratmasuk_id, diterima FROM surat_masuk WHERE nomor='$nomor' AND opd_id='$opdid' AND dibuat_id='$jabatan'")->row();
 
 								$dataRetensi	= array(
-									'surat_id' 			=> $surat->suratmasuk_id,
+									'surat_id' 			=> $surat_id->suratmasuk_id,
 									'jenis_surat' 		=> 'Surat Masuk',
 									'jra_id'			=> htmlentities($this->input->post('jra_id'))
 								);
@@ -833,10 +832,10 @@ class Surat extends CI_Controller
 
 					/* START:Input Retensi Arsip Surat Masuk [@Dam-Egov 11/01/2024] */
 					$nomor = $data['nomor'];
-					$surat = $this->db->query("SELECT suratmasuk_id, diterima FROM surat_masuk WHERE nomor='$nomor' AND opd_id='$opdid' AND dibuat_id='$jabatan'")->row();
+					$surat_id = $this->db->query("SELECT suratmasuk_id, diterima FROM surat_masuk WHERE nomor='$nomor' AND opd_id='$opdid' AND dibuat_id='$jabatan'")->row();
 
 					$dataRetensi	= array(
-						'surat_id' 			=> $surat->suratmasuk_id,
+						'surat_id' 			=> $surat_id->suratmasuk_id,
 						'jenis_surat' 		=> 'Surat Masuk',
 						'jra_id'			=> htmlentities($this->input->post('jra_id'))
 					);
@@ -882,10 +881,10 @@ class Surat extends CI_Controller
 
 				/* START:Input Retensi Arsip Surat Masuk [@Dam-Egov 11/01/2024] */
 				$nomor = $data['nomor'];
-				$surat = $this->db->query("SELECT suratmasuk_id, diterima FROM surat_masuk WHERE nomor='$nomor' AND opd_id='$opdid' AND dibuat_id='$jabatan'")->row();
+				$surat_id = $this->db->query("SELECT suratmasuk_id, diterima FROM surat_masuk WHERE nomor='$nomor' AND opd_id='$opdid' AND dibuat_id='$jabatan'")->row();
 
 				$dataRetensi	= array(
-					'surat_id' 			=> $surat->suratmasuk_id,
+					'surat_id' 			=> $surat_id->suratmasuk_id,
 					'jenis_surat' 		=> 'Surat Masuk',
 					'jra_id'			=> htmlentities($this->input->post('jra_id'))
 				);
